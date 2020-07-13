@@ -1,0 +1,2 @@
+# licenses
+a license project
