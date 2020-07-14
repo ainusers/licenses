@@ -9,16 +9,35 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.data</groupId>
-    <artifactId>analysis</artifactId>
+    <artifactId>licenses</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>analysis</name>
+    <name>licenses</name>
+    <packaging>pom</packaging>
     <description>a license project</description>
+
+    <modules>
+        <module>consumer</module>
+        <module>provider</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+        <!-- license -->
+        <dependency>
+            <groupId>de.schlichtherle.truelicense</groupId>
+            <artifactId>truelicense-core</artifactId>
+            <version>1.33</version>
+        </dependency>
+        <!-- commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
