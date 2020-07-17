@@ -8,22 +8,14 @@ import java.util.List;
  * @Date: 2020/7/13 17:27
  * @Description: license额外请求校验参数
  */
-public class LicenseParam implements Serializable {
+public class ServerInfo implements Serializable {
 
-    // 是否认证IP
-    private boolean isIpCheck;
     // 允许的IP
     private List<String> ips;
-    // 是否认证MAC
-    private boolean isMacCheck;
     // 允许的MAC
     private List<String> macs;
-    // 是否认证CPU
-    private boolean isCpuCheck;
     // 允许的CPU
     private String cpus;
-    // 是否认证主板
-    private boolean isBoardCheck;
     // 允许的主板
     private String Boards;
 
@@ -58,22 +50,6 @@ public class LicenseParam implements Serializable {
 
     public void setBoards(String boards) {
         Boards = boards;
-    }
-
-    public boolean isIpCheck() {
-        return isIpCheck;
-    }
-
-    public boolean isMacCheck() {
-        return isMacCheck;
-    }
-
-    public boolean isCpuCheck() {
-        return isCpuCheck;
-    }
-
-    public boolean isBoardCheck() {
-        return isBoardCheck;
     }
 
 }

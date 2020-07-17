@@ -1,6 +1,6 @@
 package com.data.consumer.service;
 
-import com.data.consumer.entity.LicenseParam;
+import com.data.consumer.entity.ServerInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;
@@ -25,8 +25,8 @@ public abstract class ServerInfoAbstract {
 
 
     // 获取服务器硬件信息
-    public LicenseParam getServerInfo(){
-        LicenseParam licenseParam = new LicenseParam();
+    public ServerInfo getServerInfo(){
+        ServerInfo licenseParam = new ServerInfo();
         try {
             licenseParam.setIps(this.Ip());
             licenseParam.setMacs(this.Mac());
