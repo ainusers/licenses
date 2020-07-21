@@ -7,9 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import javax.security.auth.x500.X500Principal;
 import java.io.File;
-import java.text.DateFormat;
 import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
 import java.util.prefs.Preferences;
 
 /*
@@ -23,7 +21,7 @@ public class LicenseCreator {
     /* 变量 */
     private static Logger log = LogManager.getLogger(LicenseCreator.class);
     // 证书的发行者和主体字段信息
-    private final static X500Principal DEFAULT_HOLDER_AND_ISSUER = new X500Principal("CN=HongYi, OU=BeiJing, O=InDass, L=GX, ST=GX, C=CN");
+    private final static X500Principal DEFAULT_HOLDER_AND_ISSUER = new X500Principal("CN=BigData, OU=HongYi, O=InDass, L=BJ, ST=BJ, C=CN");
     //构造函数赋值
     private LicenseInfo licenseInfo;
     public LicenseCreator(LicenseInfo licenseInfo) {
@@ -34,11 +32,9 @@ public class LicenseCreator {
     // 生成license证书
     public boolean generateLicense(){
         try {
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            CustomLicenseManager licenseManager = CustomLicenseManager.getInstance(initLicenseParam());
+            LicenseManager licenseManager = CustomLicenseManager.getInstance(initLicenseParam());
             LicenseContent licenseContent = initLicenseContent();
             licenseManager.store(licenseContent,new File(licenseInfo.getLicensePath()));
-            log.info(MessageFormat.format("证书生成成功，证书有效期：{0} - {1}",format.format(licenseInfo.getNotBefore()),format.format(licenseInfo.getNotAfter())));
             return true;
         }catch (Exception e){
             log.error(MessageFormat.format("证书生成失败：{0}",licenseInfo),e);

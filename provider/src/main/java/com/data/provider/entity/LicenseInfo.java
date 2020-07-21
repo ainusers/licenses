@@ -14,8 +14,6 @@ public class LicenseInfo implements Serializable {
 
     // 证书名称
     private String subject;
-    // 证书有效期
-    // private Date issued;
     // 证书生效日期
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date notBefore;
