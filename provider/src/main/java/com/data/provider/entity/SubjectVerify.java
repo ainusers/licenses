@@ -1,26 +1,20 @@
-package com.data.consumer.entity;
-
-import java.io.Serializable;
+package com.data.provider.entity;
 
 /*
  * @Author: tianyong
- * @Date: 2020/7/16 15:13
- * @Description: license配置参数
+ * @Date: 2020/7/21 11:41
+ * @Description: license验证信息
  */
-public class LicenseConfig implements Serializable {
+public class SubjectVerify {
 
-    // 证书名称
+    // 证书subject
     private String subject;
-
-    // 公钥别名
+    // 公钥别称
     private String publicAlias;
-
     // 访问公钥库的密码
     private String storePass;
-
     // 证书生成路径
     private String licensePath;
-
     // 密钥库存储路径
     private String publicKeysStorePath;
 

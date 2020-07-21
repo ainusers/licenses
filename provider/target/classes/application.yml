@@ -1,9 +1,0 @@
-server:
-  port: 6677
-
-license:
-  subject: InDass
-  publicAlias: publicCert
-  publicKeysStorePath: /publicCerts.store
-  storePass: hongyi2020
-  licensePath: C:\\Users\\Administrator\\Desktop\\license.lic

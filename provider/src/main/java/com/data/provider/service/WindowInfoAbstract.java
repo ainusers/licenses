@@ -1,6 +1,6 @@
-package com.data.consumer.service;
+package com.data.provider.service;
 
-import com.data.consumer.utils.Utils;
+import com.data.provider.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.data.consumer.entity;
+package com.data.provider.entity;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.data.consumer.service;
+package com.data.provider.service;
 
-import com.data.consumer.entity.ServerInfo;
+import com.data.provider.entity.ServerInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;

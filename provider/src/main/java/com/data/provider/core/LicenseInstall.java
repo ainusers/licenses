@@ -1,7 +1,8 @@
 package com.data.provider.core;
 
 
-import com.data.provider.entity.LicenseVerify;
+import com.data.provider.entity.SubjectVerify;
+import com.data.provider.utils.Utils;
 import de.schlichtherle.license.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,6 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.prefs.Preferences;
 
 /*
  * @Author: tianyong
@@ -48,16 +48,16 @@ public class LicenseInstall {
     @PostConstruct
     private void init(){
         System.out.println("++++++++++++安装证书开始+++++++++++++");
-        LicenseVerify licenseVerify = getLicenseVerify();
+        SubjectVerify subjectVerify = getSubjectVerify();
         //安装证书
-        this.install(licenseVerify);
+        this.install(subjectVerify);
         System.out.println("++++++++++++安装证书结束+++++++++++++");
     }
 
 
     // 获取license参数
-    public LicenseVerify getLicenseVerify(){
-        LicenseVerify param = new LicenseVerify();
+    public SubjectVerify getSubjectVerify(){
+        SubjectVerify param = new SubjectVerify();
         param.setSubject(subject);
         param.setPublicAlias(publicAlias);
         param.setStorePass(storePass);
@@ -68,11 +68,11 @@ public class LicenseInstall {
 
 
     // 安装证书操作
-    public synchronized LicenseContent install(LicenseVerify param){
+    public synchronized LicenseContent install(SubjectVerify param){
         LicenseContent result = null;
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try{
-            LicenseManager licenseManager =new LicenseManager(initLicenseParam(param));
+            LicenseManager licenseManager =new LicenseManager(Utils.initLicenseParam(param));
             licenseManager.uninstall();
             result = licenseManager.install(new File(param.getLicensePath()));
             log.info(MessageFormat.format("证书安装成功，证书有效期：{0} - {1}",format.format(result.getNotBefore()),format.format(result.getNotAfter())));
@@ -81,22 +81,6 @@ public class LicenseInstall {
             // System.exit(0);
         }
         return result;
-    }
-
-
-    // 初始化证书生成参数
-    private LicenseParam initLicenseParam(LicenseVerify param){
-        Preferences preferences = Preferences.userNodeForPackage(LicenseVerify.class);
-        CipherParam cipherParam = new DefaultCipherParam(param.getStorePass());
-        KeyStoreParam publicStoreParam = new DefaultKeyStoreParam(LicenseVerify.class
-                ,param.getPublicKeysStorePath()
-                ,param.getPublicAlias()
-                ,param.getStorePass()
-                ,null);
-        return new DefaultLicenseParam(param.getSubject()
-                ,preferences
-                ,publicStoreParam
-                ,cipherParam);
     }
 
 }
