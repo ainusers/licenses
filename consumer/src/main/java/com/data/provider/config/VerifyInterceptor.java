@@ -3,8 +3,6 @@ package com.data.provider.config;
 import com.data.provider.core.LicenseInstall;
 import com.data.provider.core.LicenseVerify;
 import com.data.provider.utils.Utils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;

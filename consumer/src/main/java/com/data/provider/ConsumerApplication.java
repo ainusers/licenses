@@ -1,4 +1,4 @@
-package com.data.consumer;
+package com.data.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

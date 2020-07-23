@@ -1,7 +1,6 @@
 package com.data.provider.core;
 
 import com.data.provider.entity.CustomVerify;
-import com.data.provider.entity.LicenseInfo;
 import com.data.provider.entity.ServerInfo;
 import com.data.provider.service.LinuxInfoAbstract;
 import com.data.provider.service.WindowInfoAbstract;
@@ -11,13 +10,11 @@ import de.schlichtherle.xml.GenericCertificate;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-
 import static de.schlichtherle.xml.XMLConstants.DEFAULT_BUFSIZE;
 import static de.schlichtherle.xml.XMLConstants.XML_CHARSET;
 

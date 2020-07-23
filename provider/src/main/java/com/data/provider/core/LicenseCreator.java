@@ -1,5 +1,6 @@
 package com.data.provider.core;
 
+import com.data.provider.entity.CustomKeyStore;
 import com.data.provider.entity.LicenseInfo;
 import de.schlichtherle.license.*;
 import org.apache.logging.log4j.LogManager;
@@ -48,7 +49,7 @@ public class LicenseCreator {
         Preferences preferences = Preferences.userNodeForPackage(LicenseCreator.class);
         //设置对证书内容加密的秘钥
         CipherParam cipherParam = new DefaultCipherParam(licenseInfo.getStorePass());
-        KeyStoreParam privateStoreParam = new DefaultKeyStoreParam(LicenseCreator.class
+        KeyStoreParam privateStoreParam = new CustomKeyStore(LicenseCreator.class
                 ,licenseInfo.getPrivateKeysStorePath()
                 ,licenseInfo.getPrivateAlias()
                 ,licenseInfo.getStorePass()

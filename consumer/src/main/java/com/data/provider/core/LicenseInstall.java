@@ -3,7 +3,8 @@ package com.data.provider.core;
 
 import com.data.provider.entity.SubjectVerify;
 import com.data.provider.utils.Utils;
-import de.schlichtherle.license.*;
+import de.schlichtherle.license.LicenseContent;
+import de.schlichtherle.license.LicenseManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -72,13 +73,13 @@ public class LicenseInstall {
         LicenseContent result = null;
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try{
-            LicenseManager licenseManager =new LicenseManager(Utils.initLicenseParam(param));
+            LicenseManager licenseManager =CustomLicenseManager.getInstance(Utils.initLicenseParam(param));
             licenseManager.uninstall();
             result = licenseManager.install(new File(param.getLicensePath()));
             log.info(MessageFormat.format("证书安装成功，证书有效期：{0} - {1}",format.format(result.getNotBefore()),format.format(result.getNotAfter())));
         }catch (Exception e){
             log.error("证书安装失败！",e);
-            // System.exit(0);
+            System.exit(0);
         }
         return result;
     }
